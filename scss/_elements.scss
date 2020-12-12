@@ -1,0 +1,186 @@
+$blue-font1: #183e51;
+$blue-font2: #2a566a;
+
+$blue-bg1: #21bbe2;
+
+$grey-bg1: #f3f3f3;
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $blue-font1;
+    border-radius: 50px;
+}
+
+
+@keyframes criss-cross-left {
+    0% {
+        left: -20px;
+    }
+
+    50% {
+        left: 50%;
+        @include size(20px);
+    }
+
+    100% {
+        left: 50%;
+        @include size(200px*1.5);
+    }
+}
+
+@keyframes criss-cross-right {
+    0% {
+        right: -20px;
+    }
+
+    50% {
+        right: 50%;
+        @include size(20px);
+    }
+
+    100% {
+        right: 50%;
+        @include size(200px*1.5);
+    }
+}
+
+@keyframes shadow-pulse {
+    0% {
+        box-shadow: 0 0 0 3px rgba(33, 187, 226, 0.376);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(33, 187, 226, 0.376);
+    }
+
+    100% {
+        box-shadow: 0 0 0 1.5px rgba(33, 187, 226, 0.376);
+    }
+}
+
+
+* {
+    &:focus {
+        outline: none !important;
+    }
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+
+    @include media-breakpoint-down(lg) {
+        font-size: 51.62%;
+    }
+}
+
+body {
+    font-family: 'Muli';
+    font-size: 1.7rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Ubuntu';
+    font-weight: 500;
+    color: $blue-font1;
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h4 {
+    font-size: 3rem;
+}
+
+h6 {
+    font-size: 2rem;
+}
+
+a {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.btn {
+    font-size: 1.7rem;
+    font-family: 'Ubuntu';
+    background: #fff;
+    transition: .3s !important;
+
+    border: 0;
+    transition-delay: 0s !important;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+
+
+    &.btn-primary {
+        border-radius: 0;
+        color: $blue-font1;
+        font-weight: 600;
+        padding: 1rem 2.5rem;
+        text-transform: uppercase;
+
+
+        &:hover {
+            color: #fff;
+            background: $blue-font1;
+        }
+    }
+
+    &.bl {
+        background: $blue-bg1;
+        color: #fff;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            bottom: 0;
+            left: 0;
+            border-right: 50px solid transparent;
+            border-bottom: 80px solid $blue-font1;
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+            z-index: -1;
+            transition: .3s;
+        }
+
+        &:hover {
+            border: 0;
+
+            &::after {
+                transform: translateX(0);
+            }
+        }
+
+        &:hover {
+            background: darken($color: $blue-bg1, $amount: 5);
+        }
+    }
+
+
+}
